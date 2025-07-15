@@ -31,12 +31,14 @@ namespace src.Repository
 
         public async Task<Course> GetByIdAsync(int id)
         {
-            return await _context.Courses.Include(i => i.Lecturer).FirstOrDefaultAsync(i => i.Id == id);
+            // return await _context.Courses.Include(i => i.Lecturer).FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Courses.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<Course> GetByIdAsyncNoTracking(int id)
         {
-            return await _context.Courses.Include(i => i.Lecturer).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+            // return await _context.Courses.Include(i => i.Lecturer).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Courses.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<IEnumerable<Course>> GetCourse(string search)

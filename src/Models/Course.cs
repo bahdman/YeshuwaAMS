@@ -14,14 +14,14 @@ namespace src.Models
         public string Level { get; set; } = string.Empty;
         public string Semester { get; set; } = string.Empty;
         [ForeignKey("Department")]
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
         public Department Department { get; set; }
         [ForeignKey("Faculty")]
-        public int FacultyId { get; set; }
+        public int? FacultyId { get; set; }
         public Faculty Faculty { get; set; }
         public CourseCategory CourseCategory { get; set; }
         [ForeignKey("Lecturer")]
-        public int LecturerId { get; set; }
+        public int? LecturerId { get; set; }
         public User Lecturer { get; set; }
     }
 }

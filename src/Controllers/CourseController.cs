@@ -69,6 +69,7 @@ namespace src.Controllers
         }
 
         //Get request for editing courses...
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var course = await _courseRepository.GetByIdAsync(id);
