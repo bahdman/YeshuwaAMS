@@ -13,12 +13,14 @@
     /* C O L O R S */
 
     --clr-wht : #FFFFFF;
+    --clr-grey : #BCBAB6;
     --clr-lgt-cyan : #EAF3FC;
     --clr-md-cyan : #6699CC;
     --clr-blue : #D7E9FA;
     --clr-md-blk : #222222;
     --clr-green : #66CC72;
     --clr-yellow : #FFFED0;
+    --clr-drk-Yellow : #E4C752;
 
     /* F O N T   S I Z E S */
     --f-16 : 16px;
@@ -44,6 +46,11 @@ label{
     width: 36px;
     height: 36px;
     cursor: pointer;
+}
+
+.container{
+    border-radius: 4px;
+    box-shadow: 0px 1px 6px 0px rgb(0, 0, 0, 0.1);
 }
 
 img{
@@ -81,8 +88,16 @@ a{
     text-transform: capitalize;
 }
 
+.uppercase{
+    text-transform: uppercase;
+}
+
 .yellowBg{
     background-color: var(--clr-yellow);
+}
+
+.drkYellowBg{
+    background-color: var(--clr-drk-Yellow);
 }
 
 .infoDiv p{
@@ -99,6 +114,14 @@ a{
 
 .btn:hover{
     transform: scale(1.05);
+}
+
+.drkYellowBtn{
+    background-color: var(--clr-drk-Yellow)
+}
+
+.greenBtn{
+    background-color: var(--clr-green);
 }
 
 .blueBtn{
@@ -363,7 +386,7 @@ form p{
 .noticeContainer{
     padding: 16px;
     border-radius: 4px;
-    box-shadow: 0px 1px 7px 0px rgb(0, 0, 0, 50); /*used intuition, attr in figma didn't align*/
+    box-shadow: 0px 1px 6px 0px rgb(0, 0, 0, 0.1);
 }
 
 
@@ -442,13 +465,309 @@ form p{
 
 /* COURSE REGISTRATION PAGE */
 
+.courseNotificationContainer{
+    margin-bottom: 24px;
+}
+
+.courseSummaryContainer .notificationHeader, .notificationContainerContent{
+    border-radius: 4px;
+}
+.courseSummaryContainer .notificationHeader{
+    padding: 10px;
+}
+.courseSummaryContainer .notificationContainerContent{
+    padding: 14px;
+    background-color: rgb(228, 199, 82, 0.6);
+}
+
+.courseSummaryContainer .notificationHeader h2{
+    font-size: var(--f-20);
+    font-weight: normal;
+}
+.courseSummaryContainer .notificationContainerContent p{
+    font-size: var(--f-16);
+    font-weight: bold;
+}
+
+.courseSummary{
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 53px;
+    padding: 0px 10px;
+}
+
+.courseSummary label{
+    font-size: var(--f-16);
+    font-weight: normal;
+}
+
+.courseSummary p{
+    font-size: var(--f-20);
+    font-weight: bold;
+}
+
+.courseSummary p , button{
+    margin-top: 17px;
+}
+
+.registrationStatus button{
+    width: 180px;
+    height: 24px;
+    color: var(--clr-wht);
+}
+
+.courseList h2{
+    margin-bottom: 30px;
+}
+
+.courseList table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.courseList table .courseName{
+    align-items: center;
+    gap: 16px;
+}
+
+.courseList table thead{
+    background-color: var(--clr-md-cyan);
+    border-collapse: collapse;
+}
+
+.courseList table th{
+    padding: 12px 0px;
+    color: var(--clr-wht);
+}
+
+.courseList table tbody tr{
+    background-color: var(--clr-lgt-cyan);
+    border: 1px solid var(--clr-wht);
+}
+
+.courseList table td{
+    padding: 9.5px 12px;
+}
+
+.courseCustomCheckbox input[type="checkbox"]{
+    display: none;
+}
+
+.courseCustomCheckbox .checkpoint{
+    display: inline-block;
+    width: 26px;
+    height: 29px;
+    border: 2px solid var(--clr-md-cyan);
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+
+}
+
+.courseCustomCheckbox input:checked + .checkpoint::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    background-color: var(--clr-md-cyan);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.courseList table button{
+    padding: 2.5px 53px;
+    margin: 0 auto;
+}
+
+.courseSummary .addElectivesBtn{
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12.5px 32.5px;
+    background-color: var(--clr-blue);
+    gap: 5px
+}
+
+.addElectivesBtn, .courseApplied, .totalUnits{
+    margin-top: 5px;
+}
+.courseApplied, .totalUnits{
+    /* align-items: center;
+    justify-content: center; */
+    gap: 8px;
+}
+
+.box{
+    width: 48px;
+    height: 44px;
+    background-color: var(--clr-blue);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.submitCourseReg{
+
+    margin: 30px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+/* REULSTS PAGE */
+
+.resultPanel{
+    background-color: var(--clr-lgt-cyan);
+    height: 52px;
+    border-radius: 4px;
+    justify-content: right;
+    gap: 95px;
+    margin-bottom: 50px;
+}
+
+.resultPanel p{
+    font-size: var(--f-24);
+    font-weight: normal;
+}
+
+.resultPanel .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer
+}
+
+.sessionSelection{
+    padding: 8px 0px;
+}
+
+.resultSummary{
+    align-items: center;
+    gap: 50px;
+}
+
+.totalUnits{
+    outline: 1px solid black;
+}
+
+.resultSummary p{
+    font-weight: bold;
+}
+
+/* COMPLAINTS PAGE */
+
+.complaintInput label, .selectContainer label{
+    font-size: var(--f-16) !important;
+    font-weight: normal !important;
+    margin-bottom: 8px;
+}
+
+.complaintInput textarea{
+    padding: 5px;
+    outline: none;
+}
 
 
+/* RATINGS PAGE */
+
+.selectContainer{
+    margin-bottom: 24px;
+}
+.selectContainer select{
+    height: 50px;
+    text-align: center;
+}
 
 
+.reviewContainer{
+    margin-top: 10px;
+}
+
+.reviewContainer .ratings{
+    gap: 8px;
+    margin-top: 5px;
+}
+.starIcon{
+    width: 20px;
+    height: 19px;
+    cursor: pointer;
+}
+
+/* TRANSFER PANEL */
+
+.transferPanel{
+    justify-content: right;
+}
+
+.transferPanel .selectContainer{
+    width: 25%;
+}
+
+.spacer{
+    background-color: var(--clr-wht) !important;
+}
+
+.collapse tr{
+    border: none !important;
+}
+
+/* SIWES PLACEMENT PAGE */
+
+.placementInput input{
+    height: 50px;
+    padding-left: 10px;
+}
 
 
+/* FEES PAGE */
 
+.feesContainer{
+    height: 50vh;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 50px;
+}
+
+/* no ideal cause there might be contents in future */
+
+.feesContainer p {
+    margin-top: 190px;
+    color: var(--clr-grey);
+    /* margin-bottom: 200px; */
+}
+
+/* PAYMENT BREAKDOWN PAGE */
+
+.paymentTable table {
+  counter-reset: sn;
+}
+
+.paymentTable tbody tr:not(:last-child) {
+  counter-increment: sn;
+}
+
+.paymentTable tbody tr:not(:last-child) td:first-child::before {
+  content: counter(sn);
+}
+
+/* INVOICE PAGE */
+
+.invoiceContainer h2{
+    margin-bottom: 18px;
+}
+
+/* PAYMENT HISTORY PAGE */
+
+.historyBtnContainer{
+   justify-content: right;
+}
 
 
 
