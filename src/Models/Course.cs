@@ -21,7 +21,7 @@ namespace src.Models
         public Faculty Faculty { get; set; }
         public CourseCategory CourseCategory { get; set; }
         [ForeignKey("Lecturer")]
-        public int? LecturerId { get; set; }
+        public string LecturerId { get; set; } = string.Empty;
         public User Lecturer { get; set; }
     }
 }

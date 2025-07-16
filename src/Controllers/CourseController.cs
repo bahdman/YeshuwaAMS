@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using src.Interface;
 using src.Models;
 using src.ViewModels;
@@ -95,6 +96,12 @@ namespace src.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(EditCourseViewModel editVM)
         {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
             if (ModelState.IsValid)
             {
                 var course = await _courseRepository.GetByIdAsyncNoTracking(editVM.Id);
@@ -109,7 +116,7 @@ namespace src.Controllers
                     course.CourseCode = editVM.CourseCode;
                     course.Unit = editVM.Unit;
                     course.CourseCategory = editVM.CourseCategory;
-                    course.LecturerId = editVM.LecturerId;
+                    course.LecturerId = userId;
                     course.Lecturer = editVM.Lecturer;
 
                     _courseRepository.Update(course);

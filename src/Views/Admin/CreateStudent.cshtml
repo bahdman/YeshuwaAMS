@@ -1,0 +1,219 @@
+﻿@using src.ViewModels
+@using src.Enums
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Yeshua | Create Student";
+    Layout = null; // Or use your admin layout if needed
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CustomCss/index.css">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="dashboardMainContainer flex">
+        <!-- Sidebar Menu -->
+        <div class="menuPanel">
+            <div class="menuPanelContent">
+                <div class="profile">
+                    <div class="profilePhoto">
+                        <img src="~/ASSETS/admin.png" alt="Admin Photo">
+                    </div>
+                    <p class="blueTxt">Mr Pepper</p>
+                </div>
+
+                <div class="menuItems">
+                    <ul class="menu flex column">
+                        <!-- Dashboard -->
+                        <li class="flex highlight">
+                            <div class="iconSz24"><img src="~/ASSETS/Category.png" alt="dashboard icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Dashboard" asp-action="Index">dashboard</a>
+                        </li>
+
+                        <!-- Student Management -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/user.png" alt="create student icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Student" asp-action="Create">create student</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/announcement.png" alt="manage students icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Student" asp-action="Manage">manage student</a>
+                        </li>
+
+                        <!-- Academic -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/courseReg.png" alt="courses icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Academic" asp-action="CourseRegistration">course registration</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/calendar.png" alt="programs icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Academic" asp-action="Programs">program</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="courses icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Academic" asp-action="Courses">course</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/calendar.png" alt="results icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Academic" asp-action="Results">results</a>
+                        </li>
+
+                        <!-- Financial -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="fees icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Financial" asp-action="SchoolFees">school fees</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="payments icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Financial" asp-action="TrackPayment">track payment</a>
+                        </li>
+
+                        <!-- Other Services -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="siwes icon"></div>
+                            <a class="blueTxt uppercase" asp-controller="Services" asp-action="SIWES">siwes</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="deferment icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Services" asp-action="Deferment">deferment request</a>
+                        </li>
+
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="complaints icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Services" asp-action="Complaints">complaints</a>
+                        </li>
+
+                        <!-- System -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="settings icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="System" asp-action="Settings">settings</a>
+                        </li>
+
+                        <!-- Logout -->
+                        <li class="flex">
+                            <div class="iconSz24"><img src="~/ASSETS/logout.png" alt="logout icon"></div>
+                            <a class="blueTxt capitalize" asp-controller="Account" asp-action="Logout">log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="dashboard">
+            <div class="panel flex">
+                <div class="schoolNameLogo flex center">
+                    <div class="logo">
+                        <img src="~/ASSETS/logo.png" alt="School Logo">
+                    </div>
+                    <h1 class="blueTxt capitalize">university of yeshua</h1>
+                </div>
+
+                <div class="panelIcons flex center">
+                    <div class="notificationIcon iconSz36"><img src="~/ASSETS/notifications.png" alt="icon"></div>
+                    <div class="settingsIcon iconSz36"><img src="~/ASSETS/settings.png" alt="icon"></div>
+                </div>
+            </div>
+
+            <div class="overviewPanel">
+                <div class="navigation flex">
+                    <div class="navigationName flex">
+                        <h6 class="capitalize lgtBlueTxt">dashboard</h6>
+                        <div class="arrowIcon"><img src="~/ASSETS/arrow.png" alt="icon"></div>
+                        <h6 class="capitalize whtTxt">create student</h6>
+                    </div>
+                    <div class="course">
+                        <h6 class="capitalize whtTxt">Programme: <span>B.Sc Communication And Information Science</span></h6>
+                    </div>
+                </div>
+
+                <div class="userOverview">
+                    <div class="userDetails flex center">
+                        <h1 class="capitalize whtTxt">Create New Student</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboardContents">
+                <form asp-controller="Admin" asp-action="CreateStudent" method="post">
+                    <div class="userPrimaryInfo flex createStudent">
+                        <div class="setOne">
+                            <div class="info flex column">
+                                <label asp-for="FullName">Full Name</label>
+                                <input asp-for="FullName" type="text" class="form-control">
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            @* <div class="info flex column">
+                                <label asp-for="Username">Username</label>
+                                <input asp-for="Username" type="text" class="form-control">
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div> *@
+
+                            <div class="info flex column">
+                                <label asp-for="DateOfBirth">Date of Birth</label>
+                                <input asp-for="DateOfBirth" type="date" class="form-control">
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+
+                            <div class="info flex column">
+                                <label asp-for="Gender">Gender</label>
+                                <div class="flex center">
+                                    @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                                    {
+                                        <div class="radio">
+                                            <input type="radio" asp-for="Gender" value="@gender" />
+                                            <label class="capitalize">@gender</label>
+                                        </div>
+                                    }
+                                </div>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="setTwo">
+                            <div class="info flex column">
+                                <label asp-for="Program">Program</label>
+                                <input asp-for="Program" type="text" class="form-control">
+                                <span asp-validation-for="Program" class="text-danger"></span>
+                            </div>
+
+                            <div class="info flex column">
+                                <label asp-for="Level">Level</label>
+                                <select asp-for="Level" asp-items="Html.GetEnumSelectList<Level>()" class="form-control">
+                                    <option value="">-- Select Level --</option>
+                                </select>
+                                <span asp-validation-for="Level" class="text-danger"></span>
+                            </div>
+
+                            <div class="info flex column">
+                                <label asp-for="EntryMode">Entry Mode</label>
+                                <input asp-for="EntryMode" type="text" class="form-control">
+                                <span asp-validation-for="EntryMode" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="historyBtnContainer flex">
+                        <button type="submit" class="btn blueBtn paymentHistoryBtn">Create Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>
