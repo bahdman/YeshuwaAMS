@@ -1,9 +1,11 @@
-﻿namespace src.Interface
+﻿using src.ViewModels;
+
+namespace src.Interface
 {
     public interface IResultRepository
     {
-        Task<string> CreateResult();
-        Task<string> ViewResult();
-        Task<string> ViewAllResult();
+        Task<bool> CreateResult(ResultViewModel model);
+        Task<ResultViewModel> ViewResult();
+        Task<ICollection<ResultViewModel>> ViewAllResult();
     }
 }
