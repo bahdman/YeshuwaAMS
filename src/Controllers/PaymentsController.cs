@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PayStack.Net;
 using src.Data;
@@ -7,13 +8,13 @@ using src.ViewModels;
 
 namespace src.Controllers
 {
-    public class PaymentController : Controller
+    public class PaymentsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly string token;
         private PayStackApi PayStack { get; set; }
-        public PaymentController(ApplicationDbContext context, IConfiguration configuration)
+        public PaymentsController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
@@ -22,7 +23,7 @@ namespace src.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Fees()
         {
             return View();
         }
@@ -35,16 +36,27 @@ namespace src.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PayFees(PaymentViewModel pay)
+        public async Task<IActionResult> PayFees()
         {
+            IEnumerable<Invoice> invoices = await _context.Invoices.ToListAsync();
+
+            var userEmail = User.FindFirstValue(ClaimTypes.Email) ?? "ymsDev@yopmail.com";
+            var totalAmount = invoices.Sum(m => m.Amount);
+
+            string callbackUrl = Url.Action(
+                action: "Verify",          // action name
+                controller: "Payment",     // controller name
+                values: null,              // route values (if any)
+                protocol: Request.Scheme); // auto-detects http/https
+
             //To initialize transaction...
             TransactionInitializeRequest request = new TransactionInitializeRequest()
             {
-                AmountInKobo = pay.Amount * 100,
-                Email = pay.Email,
+                AmountInKobo = totalAmount * 100,
+                Email = userEmail,
                 Reference = Generate().ToString(),
                 Currency = "NGN",
-                CallbackUrl = "http://localhost:52772/Payment/verify"
+                CallbackUrl = callbackUrl
             };
 
             //To verify successful transaction...
@@ -53,8 +65,8 @@ namespace src.Controllers
             {
                 var payment = new Payment()
                 {
-                    Amount = pay.Amount,
-                    Email = pay.Email,
+                    Amount = totalAmount,
+                    Email = userEmail,
                     TranRef = request.Reference,
                 };
                 await _context.Payments.AddAsync(payment);
@@ -86,7 +98,7 @@ namespace src.Controllers
                     payment.Status = true;
                     _context.Payments.Update(payment);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Student");
                 }
             }
             ViewData["error"] = response.Data.GatewayResponse;

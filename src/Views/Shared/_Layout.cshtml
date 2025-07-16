@@ -23,17 +23,102 @@
 
                 <div class="menuItems">
                     <ul class="menu flex column">
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/Category.png" alt="icon"></div><a class="blueTxt capitalize" asp-controller="Dashboard" asp-action="Index">dashboard</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/user.png" alt="icon"></div><a class="blueTxt capitalize" href="#">profile</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/announcement.png" alt="icon"></div><a class="blueTxt capitalize" href="#">announcements</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/courseReg.png" alt="icon"></div><a class="blueTxt capitalize" href="#">course registration</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/calendar.png" alt="icon"></div><a class="blueTxt capitalize" href="#">view results</a></li>
-                        <li class="flex highlight"><div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" asp-action="GenerateInvoice" asp-controller="Dashboard">pay fees</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/calendar.png" alt="icon"></div><a class="blueTxt capitalize" href="#">transfer form</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">siwes placement</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">submit complaint</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">lecturer review</a></li>
-                        <li class="flex"><div class="iconSz24"><img src="~/ASSETS/logout.png" alt="icon"></div><a class="blueTxt capitalize" href="#">log out</a></li>
+                        <!-- Dashboard -->
+                        <li class="flex highlight">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/Category.png" alt="Dashboard icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Student" asp-action="Index">dashboard</a>
+                        </li>
+
+                        <!-- Profile -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/user.png" alt="Profile icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Student" asp-action="Profile">profile</a>
+                        </li>
+
+                        <!-- Announcements -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/announcement.png" alt="Announcements icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Announcements" asp-action="Index">announcements</a>
+                        </li>
+
+                        <!-- Course Registration -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/courseReg.png" alt="Course registration icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Course" asp-action="Registration">course registration</a>
+                        </li>
+
+                        <!-- View Results -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/calendar.png" alt="Results icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Results" asp-action="Index">view results</a>
+                        </li>
+
+                        <!-- Pay Fees -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/note-text.png" alt="Pay fees icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Payments" asp-action="Fees">pay fees</a>
+                        </li>
+
+                        <!-- Transfer Form -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/calendar.png" alt="Transfer icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Forms" asp-action="Transfer">transfer form</a>
+                        </li>
+
+                        <!-- SIWES Placement -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/note-text.png" alt="SIWES icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="SIWES" asp-action="Placement">siwes placement</a>
+                        </li>
+
+                        <!-- Submit Complaint -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/note-text.png" alt="Complaints icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Complaints" asp-action="Create">submit complaint</a>
+                        </li>
+
+                        <!-- Lecturer Review -->
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/note-text.png" alt="Lecturer review icon">
+                            </div>
+                            <a class="blueTxt capitalize" asp-controller="Reviews" asp-action="Lecturers">lecturer review</a>
+                        </li>
+
+                        <!-- Log Out -->
+                        @* <li class="flex"> *@
+                        @*     <div class="iconSz24"> *@
+                        @*         <img src="~/ASSETS/logout.png" alt="Logout icon"> *@
+                        @*     </div> *@
+                        @*     <a class="blueTxt capitalize" asp-controller="Account" asp-action="Logout">log out</a> *@
+                        @* </li> *@
+
+                        <li class="flex">
+                            <div class="iconSz24">
+                                <img src="~/ASSETS/logout.png" alt="Logout icon">
+                            </div>
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="logoutForm">
+                                <button type="submit" class="blueTxt capitalize btn-link">log out</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
