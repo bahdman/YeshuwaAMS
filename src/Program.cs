@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 //Database Injection...
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
 });
 
 //Identity Injection...
@@ -35,6 +35,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await IdentityDataInitializer.SeedRolesAsync(services);
+    await IdentityDataInitializer.SeedInvoiceAsync(services);
 }
 
 // Configure the HTTP request pipeline.
