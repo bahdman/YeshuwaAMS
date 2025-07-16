@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PayStack.Net;
 using src.Data;
 using src.Models;
@@ -26,8 +27,15 @@ namespace src.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> FeesBreakdown()
+        {
+            IEnumerable<Invoice> invoices = await _context.Invoices.ToListAsync();
+            return View(invoices);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Index(PaymentViewModel pay)
+        public async Task<IActionResult> PayFees(PaymentViewModel pay)
         {
             //To initialize transaction...
             TransactionInitializeRequest request = new TransactionInitializeRequest()
@@ -36,7 +44,7 @@ namespace src.Controllers
                 Email = pay.Email,
                 Reference = Generate().ToString(),
                 Currency = "NGN",
-                CallbackUrl = "http://localhost:30478/Payment/verify"
+                CallbackUrl = "http://localhost:52772/Payment/verify"
             };
 
             //To verify successful transaction...
