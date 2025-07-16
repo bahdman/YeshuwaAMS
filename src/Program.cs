@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 //Database Injection...
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 //Interface Injection...
