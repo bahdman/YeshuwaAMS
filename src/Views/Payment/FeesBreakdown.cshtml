@@ -1,0 +1,28 @@
+﻿@using src.Models
+@model IEnumerable<Invoice>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="capitalize">S/N</th>
+            <th class="capitalize">Fees</th>
+            <th class="capitalize">Amount Payable</th>
+            <th class="capitalize">Installment allowed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th class="capitalize">@item.Id</th>
+                <th class="capitalize">@item.FeeName</th>
+                <th class="capitalize">@item.Amount</th>
+                <th class="capitalize">@item.Installments</th>
+            </tr>
+        }
+    </tbody>
+</table>    
+<form asp-action="PayFees" method="post">
+    <button type="submit" class="btn blueBtn submitCourseReg flex">Make Payment</button>
+</form>
