@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using src.Enums;
 using src.Interface;
@@ -7,6 +8,7 @@ using src.ViewModels;
 
 namespace src.Controllers
 {
+    [Authorize(Roles = "Lecturer")]
     public class AdminController : Controller
     {
         private readonly UserManager<Models.User> _userManager;
@@ -69,5 +71,10 @@ namespace src.Controllers
 
         //admin dashboard
         public IActionResult Index() => View(); 
+
+        // create result
+        public IActionResult Result() => View();
+
+
     }
 }

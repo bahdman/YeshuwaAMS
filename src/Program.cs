@@ -28,6 +28,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 //Interface Injection...
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IResultRepository, ResultRepository>();
+builder.Services.AddScoped<IComplaintsRepository, IComplaintsRepository>();
+builder.Services.AddScoped<IReviewRepository, IReviewRepository>();
 
 var app = builder.Build();
 

@@ -4,8 +4,8 @@ namespace src.Interface
 {
     public interface IResultRepository
     {
-        Task<bool> CreateResult(ResultViewModel model);
-        Task<ResultViewModel> ViewResult();
-        Task<ICollection<ResultViewModel>> ViewAllResult();
+        Task<bool> CreateResult(List<ResultViewModel> model);
+        Task<ResultViewModel> ViewResult(int id);
+        Task<IEnumerable<ResultViewModel>> ViewAllResult();
     }
 }
