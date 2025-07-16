@@ -20,6 +20,12 @@ namespace src.Controllers
             PayStack = new PayStackApi(token);
         }
 
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Index(PaymentViewModel pay)
         {
@@ -52,7 +58,7 @@ namespace src.Controllers
             return View();
         }
 
-        public IActionResult Donations()
+        public IActionResult Payments()
         {
             var payments = _context.Payments.Where(x => x.Status == true).ToList();
             ViewData["payments"] = payments;
