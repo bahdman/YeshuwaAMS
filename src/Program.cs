@@ -29,8 +29,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IResultRepository, ResultRepository>();
-builder.Services.AddScoped<IComplaintsRepository, IComplaintsRepository>();
-builder.Services.AddScoped<IReviewRepository, IReviewRepository>();
+builder.Services.AddScoped<IComplaintsRepository, ComplaintRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 
 var app = builder.Build();
 

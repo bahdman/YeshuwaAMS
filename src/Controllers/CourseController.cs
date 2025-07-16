@@ -144,5 +144,8 @@ namespace src.Controllers
             _courseRepository.Delete(courseDetails);
             return RedirectToAction("Index");
         }
+
+        //registration
+        public IActionResult Registration() => View();
     }
 }

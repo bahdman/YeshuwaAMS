@@ -1,11 +1,5 @@
-@using src.ViewModels
-@model StudentViewModel
-@{
-    ViewData["Title"] = "Yeshua | Profile";
+﻿@{
     Layout = null;
-    
-    // Get current date for last visited
-    var currentDate = DateTime.Now.ToString("ddd MMMM dd yyyy");
 }
 
 <!DOCTYPE html>
@@ -13,21 +7,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/CustomCss/index.css">
-    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/CSS/index.css">
+    <title>Yeshua | Announcement</title>
 </head>
 <body>
     <div class="dashboardMainContainer flex">
-        <!-- Sidebar Menu -->
         <div class="menuPanel">
             <div class="menuPanelContent">
                 <div class="profile">
                     <div class="profilePhoto">
-                        <img src="~/ASSETS/profile.png" alt="Profile Photo">
+                        <img src="/ASSETS/profile.png" alt="">
                     </div>
-                    <p class="blueTxt">@(Model?.MatricNumber ?? "20GHUJ099")</p>
+
+                    <p class="blueTxt">20GHUJ099</p>
+
                 </div>
-    
+
                 <div class="menuItems">
                     <ul class="menu flex column">
                         <!-- Dashboard -->
@@ -131,91 +126,63 @@
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="dashboard">
             <div class="panel flex">
                 <div class="schoolNameLogo flex center">
                     <div class="logo">
-                        <img src="~/ASSETS/logo.png" alt="University Logo">
+                        <img src="/ASSETS/logo.png" alt="">
                     </div>
-                    <h1 class="blueTxt capitalize">university of yeshua</h1>
+                    <h1 class=" blueTxt capitalize">university of yeshua</h1>
                 </div>
 
                 <div class="panelIcons flex center">
-                    <div class="notificationIcon iconSz36"><img src="~/ASSETS/notifications.png" alt="notifications"></div>
-                    <div class="settingsIcon iconSz36"><img src="~/ASSETS/settings.png" alt="settings"></div>
+                    <div class="notificationIcon iconSz36"><img src="/ASSETS/notifications.png" alt="icon"></div>
+                    <div class="settingsIcon iconSz36"><img src="/ASSETS/settings.png" alt="icon"></div>
                 </div>
             </div>
 
             <div class="overviewPanel">
                 <div class="navigation flex">
                     <div class="navigationName flex">
-                        <h6 class="capitalize lgtBlueTxt">dashboard</h6>
-                        <div class="arrowIcon"><img src="~/ASSETS/arrow.png" alt="arrow icon"></div>
+                        <h6 class="capitalize lgtBlueTxt">announcement</h6>
+                        <div class="arrowIcon"><img src="/ASSETS/arrow.png" alt="icon"></div>
                         <h6 class="capitalize whtTxt">overview</h6>
                     </div>
 
                     <div class="course">
-                        <h6 class="capitalize whtTxt">Programme: <span>@(Model?.Department ?? "B.Sc Communication And Information Science")</span></h6>
+                        <h6 class="capitalize whtTxt">Programme: <span>B.Sc Communication And Information Science</span></h6>
                     </div>
                 </div>
 
+
                 <div class="userOverview">
                     <div class="userDetails flex center">
-                        <h1 class="capitalize whtTxt">Welcome, @(Model?.FullName ?? "Makkiya Dunnis Samuel")</h1>
+                        <h1 class="capitalize whtTxt">Welcome, Makkiya Dunnis Samuel</h1>
+
                         <div class="lastVisited">
-                            <h6 class="capitalize whtTxt">@currentDate</h6>
+                            <h6 class="capitalize whtTxt">Wed July 02 2025</h6>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="dashboardContents">
-                <div class="userPrimaryInfo flex">
-                    <div class="setOne">
-                        <div class="info flex column">
-                            <p>Matriculation Number</p>
-                            <div class="infoDiv flex center"><p class="blueTxt">@(Model?.MatricNumber ?? "20GHUJ099")</p></div>
-                        </div>
-                        <div class="info flex column">
-                            <p>Department</p>
-                            <div class="infoDiv flex center"><p class="blueTxt capitalize">@(Model?.Department ?? "computer science")</p></div>
-                        </div>
-                        <div class="info flex column">
-                            <p>Level</p>
-                            <div class="infoDiv flex center"><p class="blueTxt">@(Model?.DisplayLevel)</p></div>
-                        </div>
-                    </div>
 
-                    <div class="setTwo">
-                        <!-- Static fields (not in your model) -->
-                        <div class="info flex column">
-                            <p>Current Academic Session</p>
-                            <div class="infoDiv flex center"><p class="blueTxt">2024/2025</p></div>
-                        </div>
-                        <div class="info flex column">
-                            <p>Current Semester</p>
-                            <div class="infoDiv flex center"><p class="blueTxt capitalize">second semester</p></div>
-                        </div>
-                        <div class="info flex column">
-                            <p>Status</p>
-                            <button class="btn greenBtn capitalize">active</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Static notice section -->
-                <div class="noticeContainer yellowBg">
+                <div class="noticeContainer">
                     <h3>Course Registration</h3>
                     <p class="notice">
-                        This is a reminder that the deadline for course registration is fast approaching. 
+                        This is a reminder that the deadline for course registration is fast approaching.
                         Please ensure you complete your registration before the deadline to avoid any issues.
                     </p>
                     <hr>
-                    <p class="announcer">Announcer: Management</p>
+                    <p class="announcer">Announcer:  Management</p>
                 </div>
+
+
+
             </div>
         </div>
     </div>
+
 </body>
 </html>

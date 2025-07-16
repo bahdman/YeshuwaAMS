@@ -9,7 +9,7 @@ namespace src.Controllers
     public class StudentController : Controller
     {
         private readonly IUserRepository _userRepository;
-        public StudentController(IUserRepository userRepository) 
+        public StudentController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -18,11 +18,15 @@ namespace src.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if(string.IsNullOrEmpty(userId) )
+            if (string.IsNullOrEmpty(userId))
                 return RedirectToAction("Login", "Account");
 
             var dahboardData = await _userRepository.GetStudentDashboard(userId);
             return View(dahboardData);
         }
+
+        //profile
+        public IActionResult Profile() => View();
+        
     }
 }
