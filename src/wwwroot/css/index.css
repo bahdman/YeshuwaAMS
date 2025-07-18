@@ -1,0 +1,775 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+}
+
+:root{
+
+    /* C O L O R S */
+
+    --clr-wht : #FFFFFF;
+    --clr-grey : #BCBAB6;
+    --clr-lgt-cyan : #EAF3FC;
+    --clr-md-cyan : #6699CC;
+    --clr-blue : #D7E9FA;
+    --clr-md-blk : #222222;
+    --clr-green : #66CC72;
+    --clr-yellow : #FFFED0;
+    --clr-drk-Yellow : #E4C752;
+
+    /* F O N T   S I Z E S */
+    --f-16 : 16px;
+    --f-20 : 20px;
+    --f-24 : 24px;
+    --f-32 : 32px;
+}
+
+/* GENERAL STYLING */
+label{
+    color: var(--clr-md-blk);
+    font-size: var(--f-20);
+    font-weight: normal;
+}
+
+.iconSz24{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.iconSz36{
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.container{
+    border-radius: 4px;
+    box-shadow: 0px 1px 6px 0px rgb(0, 0, 0, 0.1);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.center{
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.blueTxt{
+    color: var(--clr-md-cyan);
+}
+.lgtBlueTxt{
+    color: var(--clr-lgt-cyan);
+}
+.whtTxt{
+    color: var(--clr-wht);
+}
+
+.capitalize, .btn{
+    text-transform: capitalize;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.yellowBg{
+    background-color: var(--clr-yellow);
+}
+
+.drkYellowBg{
+    background-color: var(--clr-drk-Yellow);
+}
+
+.infoDiv p{
+    margin-left: 12px;
+    font-size: var(--f-20) !important;
+    font-weight: bold !important;
+}
+
+.btn{
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+.drkYellowBtn{
+    background-color: var(--clr-drk-Yellow)
+}
+
+.greenBtn{
+    background-color: var(--clr-green);
+}
+
+.blueBtn{
+    background-color: var(--clr-md-cyan);
+    color: var(--clr-wht);
+    width: 407px;
+    height: 52px;
+    font-size: var(--f-16);
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+
+/* LOGIN PAGE */
+
+.loginContainer .logo{
+    width: 120px;
+    height: 137px;
+}
+
+.loginContainer h2{
+    color: var(--clr-md-blk);
+    font-size: var(--f-32);
+    font-weight: normal;
+    margin-bottom: 24px;
+}
+
+.loginContainer{
+    gap: 140px;
+    background-color: var(--clr-lgt-cyan);
+}
+
+.loginContainer .heroSectionImg{
+    /* width: 632px; */
+    /* height: 100vh; */
+}
+
+.loginFormContainer{
+    gap: 70px;
+}
+
+.loginFormContainer .form{
+    background-color: var(--clr-wht);
+    padding: 70px 40px;
+    border-radius: 8px;
+}
+
+.loginFormContainer .textInput, .loginOptions {
+    padding: 0px 10px;
+}
+
+
+.loginFormContainer .input{
+    width: 100%;
+    height: 50px;
+    font-size: var(--f-16);
+    padding-left: 10px;
+    border: 1px solid var(--clr-md-cyan);
+    border-radius: 4px;
+}
+
+.textInput{
+    margin-top: 68px;
+    text-align: left;
+    gap: 24px;
+}
+
+.textInput label{
+    margin-bottom: 8px;
+}
+
+.loginFormContainer .input:focus{
+    outline: none;
+}
+
+.loginOptions{
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox box */
+.custom-checkbox .checkmark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--clr-md-cyan);
+  border-radius: 4px;
+  position: relative;
+  margin-right: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Show checkmark when checked */
+.custom-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid var(--clr-md-cyan);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* INITIATE RESET PAGE */
+form p{
+    font-size: var(--f-20);
+}
+
+.form p{
+    margin-top: 10px;
+}
+
+
+/* DASHBOARD PAGE */
+
+.dashboardMainContainer{
+    gap: 20px;
+}
+
+.profile{
+    text-align: center;
+    margin-bottom: 68px;
+}
+
+.profile p{
+    margin-top: 24px;
+    font-size: var(--f-24);
+    font-weight: bold;
+}
+
+.menuPanel{
+    background-color: var(--clr-lgt-cyan);
+    padding: 0px ;
+    height: 1024px;
+    /* width: 273px; */
+    
+}
+
+.menuPanelContent{
+    padding: 25px 0px;
+    margin: 0px 14px;
+}
+
+.menu{
+    gap: 16px;
+}
+
+.menu li{
+    gap: 10px;
+    padding: 10px 0px 10px 24px;
+    cursor: pointer;
+    /* outline: 1px solid red; */
+}
+
+.highlight{
+    background-color: var(--clr-blue);
+    border-radius: 5px;
+}
+
+.dashboard{
+    padding: 64px 30px 0px;
+    width: 100%;
+}
+
+.dashboard .logo{
+    width: 65px;
+    height: 75px;
+    margin-right: 15px;
+}
+
+.dashboard .panel{
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.panelIcons{
+    gap: 10px;
+}
+
+.overviewPanel{
+    background-image: url(/ASSETS/dashboardFrame.png);
+    padding: 20px 15px;
+    margin-bottom: 64px;
+}
+
+.overviewPanel h6{
+    font-size: var(--f-16);
+}
+
+.navigation, .userOverview .userDetails{
+    justify-content: space-between;
+}
+
+.navigation{
+    margin-bottom: 16px;
+}
+
+.navigation h6, .userOverview h6{
+    font-weight: normal;
+}
+
+.navigation .course span{
+    font-weight: bolder;
+}
+
+.overviewPanel .lgtBlueTxt{
+    font-weight: normal;
+}
+
+.arrowIcon{
+    width: 24px;
+    height: 9px;
+}
+
+.userOverview h1{
+    font-size: var(--f-32);
+    font-weight: bold;
+}
+
+.userPrimaryInfo{
+    justify-content: space-between;
+}
+
+.userPrimaryInfo p{
+    font-size: var(--f-16);
+    font-weight: normal;
+}
+
+.userPrimaryInfo .info{
+    margin-bottom: 32px;
+}
+
+.infoDiv{
+    border: 1px solid rgb(102, 152, 204, 40);
+    border-radius: 4px;
+    width: 510px;
+    height: 48px;
+    margin-top: 8px;
+}
+
+.setTwo button{
+    width: 205px;
+    height: 45px;
+    margin-top: 8px;
+    font-size: var(--f-16);
+    font-weight: bold;
+    color: var(--clr-wht);
+    background-color: var(--clr-green);
+}
+
+
+.noticeContainer{
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 6px 0px rgb(0, 0, 0, 0.1);
+}
+
+
+.noticeContainer h3{
+    font-size: var(--f-20);
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+.noticeContainer p{
+    font-size: var(--f-16);
+    font-weight: normal;
+}
+
+.noticeContainer .notice{
+    margin-bottom: 16px;
+}
+
+.noticeContainer .announcer{
+    margin-top: 16px;
+}
+
+
+/* PROFILE PAGE */
+
+.userProfileOverview{
+    gap: 65px;
+    margin-bottom: 65px;
+}
+
+.userProfileOverview .profileImg{
+    width: 290px;
+    height: 290px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.userProfileOverview .info{
+    margin-bottom: 24px;
+}
+
+.primaryInfoContent, .nextOfKinInfoContent, .bankDetailsInfoContent{
+    background-color: var(--clr-lgt-cyan);
+    padding: 20px 40px;
+}
+
+.userPrimaryInfo h2, .nextOfKinInfo h2, .bankDetailsInfo h2{
+    font-size: var(--f-32);
+    margin-bottom: 24px;
+}
+
+.userPrimaryInfo h4, .nextOfKinInfo h4, .bankDetailsInfo h4{
+    font-size: var(--f-20);
+    font-weight: normal;
+    margin-bottom: 63px;
+}
+
+.lbp p, .lbp .labels label{
+    margin-bottom: 40px;
+}
+
+.lbp p{
+    font-size: var(--f-20);
+    font-weight: normal;
+
+}
+
+.lbp{ /* got tired so i lazy named this :) */
+    gap: 250px
+}
+
+.lb p{
+    align-self: le;
+}
+
+
+/* COURSE REGISTRATION PAGE */
+
+.courseNotificationContainer{
+    margin-bottom: 24px;
+}
+
+.courseSummaryContainer .notificationHeader, .notificationContainerContent{
+    border-radius: 4px;
+}
+.courseSummaryContainer .notificationHeader{
+    padding: 10px;
+}
+.courseSummaryContainer .notificationContainerContent{
+    padding: 14px;
+    background-color: rgb(228, 199, 82, 0.6);
+}
+
+.courseSummaryContainer .notificationHeader h2{
+    font-size: var(--f-20);
+    font-weight: normal;
+}
+.courseSummaryContainer .notificationContainerContent p{
+    font-size: var(--f-16);
+    font-weight: bold;
+}
+
+.courseSummary{
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 53px;
+    padding: 0px 10px;
+}
+
+.courseSummary label{
+    font-size: var(--f-16);
+    font-weight: normal;
+}
+
+.courseSummary p{
+    font-size: var(--f-20);
+    font-weight: bold;
+}
+
+.courseSummary p , button{
+    margin-top: 17px;
+}
+
+.registrationStatus button{
+    width: 180px;
+    height: 24px;
+    color: var(--clr-wht);
+}
+
+.courseList h2{
+    margin-bottom: 30px;
+}
+
+.courseList table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.courseList table .courseName{
+    align-items: center;
+    gap: 16px;
+}
+
+.courseList table thead{
+    background-color: var(--clr-md-cyan);
+    border-collapse: collapse;
+}
+
+.courseList table th{
+    padding: 12px 0px;
+    color: var(--clr-wht);
+}
+
+.courseList table tbody tr{
+    background-color: var(--clr-lgt-cyan);
+    border: 1px solid var(--clr-wht);
+}
+
+.courseList table td{
+    padding: 9.5px 12px;
+}
+
+.courseCustomCheckbox input[type="checkbox"]{
+    display: none;
+}
+
+.courseCustomCheckbox .checkpoint{
+    display: inline-block;
+    width: 26px;
+    height: 29px;
+    border: 2px solid var(--clr-md-cyan);
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+
+}
+
+.courseCustomCheckbox input:checked + .checkpoint::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    background-color: var(--clr-md-cyan);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.courseList table button{
+    padding: 2.5px 53px;
+    margin: 0 auto;
+}
+
+.courseSummary .addElectivesBtn{
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12.5px 32.5px;
+    background-color: var(--clr-blue);
+    gap: 5px
+}
+
+.addElectivesBtn, .courseApplied, .totalUnits{
+    margin-top: 5px;
+}
+.courseApplied, .totalUnits{
+    /* align-items: center;
+    justify-content: center; */
+    gap: 8px;
+}
+
+.box{
+    width: 48px;
+    height: 44px;
+    background-color: var(--clr-blue);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.submitCourseReg{
+
+    margin: 30px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+/* REULSTS PAGE */
+
+.resultPanel{
+    background-color: var(--clr-lgt-cyan);
+    height: 52px;
+    border-radius: 4px;
+    justify-content: right;
+    gap: 95px;
+    margin-bottom: 50px;
+}
+
+.resultPanel p{
+    font-size: var(--f-24);
+    font-weight: normal;
+}
+
+.resultPanel .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer
+}
+
+.sessionSelection{
+    padding: 8px 0px;
+}
+
+.resultSummary{
+    align-items: center;
+    gap: 50px;
+}
+
+.totalUnits{
+    outline: 1px solid black;
+}
+
+.resultSummary p{
+    font-weight: bold;
+}
+
+/* COMPLAINTS PAGE */
+
+.complaintInput label, .selectContainer label{
+    font-size: var(--f-16) !important;
+    font-weight: normal !important;
+    margin-bottom: 8px;
+}
+
+.complaintInput textarea{
+    padding: 5px;
+    outline: none;
+}
+
+
+/* RATINGS PAGE */
+
+.selectContainer{
+    margin-bottom: 24px;
+}
+.selectContainer select{
+    height: 50px;
+    text-align: center;
+}
+
+
+.reviewContainer{
+    margin-top: 10px;
+}
+
+.reviewContainer .ratings{
+    gap: 8px;
+    margin-top: 5px;
+}
+.starIcon{
+    width: 20px;
+    height: 19px;
+    cursor: pointer;
+}
+
+/* TRANSFER PANEL */
+
+.transferPanel{
+    justify-content: right;
+}
+
+.transferPanel .selectContainer{
+    width: 25%;
+}
+
+.spacer{
+    background-color: var(--clr-wht) !important;
+}
+
+.collapse tr{
+    border: none !important;
+}
+
+/* SIWES PLACEMENT PAGE */
+
+.placementInput input{
+    height: 50px;
+    padding-left: 10px;
+}
+
+
+/* FEES PAGE */
+
+.feesContainer{
+    height: 50vh;
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 50px;
+}
+
+/* no ideal cause there might be contents in future */
+
+.feesContainer p {
+    margin-top: 190px;
+    color: var(--clr-grey);
+    /* margin-bottom: 200px; */
+}
+
+/* PAYMENT BREAKDOWN PAGE */
+
+.paymentTable table {
+  counter-reset: sn;
+}
+
+.paymentTable tbody tr:not(:last-child) {
+  counter-increment: sn;
+}
+
+.paymentTable tbody tr:not(:last-child) td:first-child::before {
+  content: counter(sn);
+}
+
+/* INVOICE PAGE */
+
+.invoiceContainer h2{
+    margin-bottom: 18px;
+}
+
+/* PAYMENT HISTORY PAGE */
+
+.historyBtnContainer{
+   justify-content: right;
+}
+
+
+
+
+

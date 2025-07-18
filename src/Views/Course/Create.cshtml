@@ -1,0 +1,211 @@
+﻿@using src.Enums
+@using src.ViewModels
+@model CreateCourseViewModel
+
+@* <form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CourseCode">CourseCode</label>
+        <input asp-for="CourseCode" type="text" class="form-control" placeholder="CourseCode">
+        <span asp-validation-for="CourseCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Unit">Credit Units</label>
+        <input asp-for="Unit" type="text" class="form-control" placeholder="Credit unit">
+        <span asp-validation-for="Unit" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3 mb-3">
+        <label asp-for="CourseCategory">CourseCategory</label>
+        <select asp-for="CourseCategory" asp-items="@Html.GetEnumSelectList<CourseCategory>()">
+            <option>Select</option>
+        </select>
+        <span asp-validation-for="CourseCategory" class="text-danger"></span>
+    </div>
+    @* <div class="form-group">
+        <label asp-for="Lecturer.FullName">Lecturer Name</label>
+        <input asp-for="Lecturer.FullName" type="text" class="form-control" placeholder="Lectuer Name">
+        <span asp-validation-for="Lecturer.FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.Email">Lecturer Email</label>
+        <input asp-for="Lecturer.Email" type="email" class="form-control" placeholder="Email">
+        <span asp-validation-for="Lecturer.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.Department">Lecturer Department</label>
+        <input asp-for="Lecturer.Department" type="text" class="form-control" placeholder="Department">
+        <span asp-validation-for="Lecturer.Department" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.Gender">Gender</label>
+        <input asp-for="Lecturer.Gender" type="text" class="form-control" placeholder="Gender">
+        <span asp-validation-for="Lecturer.Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.DOB">Date Of Birth</label>
+        <input asp-for="Lecturer.DOB" type="date" class="form-control" placeholder="DOB">
+        <span asp-validation-for="Lecturer.DOB" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.Nationality">Nationality</label>
+        <input asp-for="Lecturer.Nationality" type="text" class="form-control" placeholder="Nationality">
+        <span asp-validation-for="Lecturer.Nationality" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.StateOfOrigin">State Of Origin</label>
+        <input asp-for="Lecturer.StateOfOrigin" type="text" class="form-control" placeholder="State Of Origin">
+        <span asp-validation-for="Lecturer.StateOfOrigin" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lecturer.LGA">Local Government Area</label>
+        <input asp-for="Lecturer.LGA" type="text" class="form-control" placeholder="LGA">
+        <span asp-validation-for="Lecturer.LGA" class="text-danger"></span>
+    </div> *@
+   @* <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-controller="Course" asp-action="Index">Back</a>
+</form> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Templates/CSS/index.css">
+    <title>Yeshua | Course Creation</title>
+</head>
+<body>
+    <div class="dashboardMainContainer flex">
+        <div class="menuPanel">
+            <div class="menuPanelContent">
+                <div class="profile">
+                    <div class="profilePhoto">
+                        <img src="../Templates/ASSETS/profile.png" alt="">
+                    </div>
+
+                    <p class="blueTxt">20GHUJ099</p>
+
+                </div>
+
+                <div class="menuItems">
+                    <ul class="menu flex column">
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/Category.png" alt="icon"></div><a class="blueTxt capitalize" href="#">dashboard</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/user.png" alt="icon"></div><a class="blueTxt capitalize" href="#">profile</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/announcement.png" alt="icon"></div><a class="blueTxt capitalize" href="#">announcements</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/courseReg.png" alt="icon"></div><a class="blueTxt capitalize" href="#">course registration</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/calendar.png" alt="icon"></div><a class="blueTxt capitalize" href="#">view results</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">pay fees</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/calendar.png" alt="icon"></div><a class="blueTxt capitalize" href="#">tranfer form</a></li>
+                        <li class="flex highlight"><div class="iconSz24"><img src="/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">siwes placement</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">submit complaint</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/note-text.png" alt="icon"></div><a class="blueTxt capitalize" href="#">lecturer review</a></li>
+                        <li class="flex"><div class="iconSz24"><img src="/ASSETS/logout.png" alt="icon"></div><a class="blueTxt capitalize" href="#">log out</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="panel flex">
+                <div class="schoolNameLogo flex center">
+                    <div class="logo">
+                        <img src="/ASSETS/logo.png" alt="">
+                    </div>
+                    <h1 class=" blueTxt capitalize">university of yeshua</h1>
+                </div>
+
+                <div class="panelIcons flex center">
+                    <div class="notificationIcon iconSz36"><img src="/ASSETS/notifications.png" alt="icon"></div>
+                    <div class="settingsIcon iconSz36"><img src="/ASSETS/settings.png" alt="icon"></div>
+                </div>
+            </div>
+
+            <div class="overviewPanel">
+                <div class="navigation flex">
+                    <div class="navigationName flex">
+                        <h6 class="capitalize lgtBlueTxt">dashboard</h6>
+                        <div class="arrowIcon"><img src="/ASSETS/arrow.png" alt="icon"></div>
+                        <h6 class="capitalize whtTxt">overview</h6>
+                    </div>
+
+                    <div class="course">
+                        <h6 class="capitalize whtTxt">Programme: <span>B.Sc Communication And Information Science</span></h6>
+                    </div>
+                </div>
+
+
+                <div class="userOverview">
+                    <div class="userDetails flex center">
+                        <h1 class="capitalize whtTxt">Welcome, Makkiya Dunnis Samuel</h1>
+
+                        <div class="lastVisited">
+                            <h6 class="capitalize whtTxt">Wed July 02 2025</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboardContents">
+                <div class="placementContainer flex column">
+
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company name</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company address</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company contact person</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company contact person phone number</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company contact email address</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company supervisor</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company supervisor phone number</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">company supervisor email address</label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize"><span class="uppercase">siwes</span> start date</label>
+                        <input type="date" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize"><span class="uppercase">siwes</span> end date</label>
+                        <input type="date" name="" id="">
+                    </div>
+                    <div class="selectContainer placementInput flex column">
+                        <label class="capitalize">state</label>
+                        <input type="text" name="" id="">
+                    </div>
+
+
+
+                    <button class="btn blueBtn submitCourseReg flex">confirm</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

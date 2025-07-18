@@ -1,0 +1,70 @@
+﻿@using src.ViewModels
+@model LoginViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "AMS | Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CustomCss/index.css">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <section class="loginSectionContainer">
+        <div class="loginContainer flex center">
+            <div class="heroSectionImg">
+                <img src="~/ASSETS/Hero Image.png" alt="School Image">
+            </div>
+
+            <div class="loginFormContainer flex column center">
+                <div class="logo">
+                    <img src="~/ASSETS/logo.png" alt="School Logo">
+                </div>
+                <div class="form">
+                    <form asp-action="Login" asp-controller="Account" method="post">
+                        <h2 class="capitalize">welcome</h2>
+                        <h1 class="blueTxt">UNIVERSITY OF YESHUWA</h1>
+
+                        <div class="textInput flex column">
+                            <div class="matricInput flex column">
+                                <label asp-for="MatricNo">Matriculation Number</label>
+                                <input class="input" asp-for="MatricNo" type="text" placeholder="Enter Matriculation Number">
+                                <span asp-validation-for="MatricNo" class="text-danger"></span>
+                            </div>
+
+                            <div class="passwordInput flex column">
+                                <label asp-for="Password">Password</label>
+                                <input class="input" asp-for="Password" type="password" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="loginOptions flex">
+                            <div class="rememberMe">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" asp-for="RememberMe">
+                                    <span class="checkmark"></span>
+                                    Keep me signed in
+                                </label>
+                            </div>
+
+                            <a class="blueTxt" asp-action="ForgotPassword" asp-controller="Account">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn loginBtn blueBtn">login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>
